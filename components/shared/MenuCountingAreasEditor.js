@@ -38,7 +38,7 @@ class MenuCountingAreasEditor extends Component {
       fr = new FileReader();
       fr.onload = (e) => {
         let lines = e.target.result;
-        var json = JSON.parse(lines); 
+        var json = JSON.parse(lines);
         this.props.dispatch(restoreCountingAreasFromJSON(json));
       };
       fr.readAsText(file);
@@ -55,44 +55,44 @@ class MenuCountingAreasEditor extends Component {
               className="btn btn-default p-0 rounded-l shadow"
               onClick={() => this.handleDelete()}
             >
-              <SVG 
-                className="w-10 h-10 svg-icon flex items-center" 
+              <SVG
+                className="w-10 h-10 svg-icon flex items-center"
                 cacheRequests={true}
-                src={process.env.basePath + `/static/icons/ui/delete.svg`} 
+                src={process.env.basePath + `/static/icons/ui/delete.svg`}
                 aria-label="icon delete"
               />
             </button>
             <button
               className="btn btn-default p-0 shadow rounded-r btn-default--active"
             >
-              <SVG 
-                className="w-10 h-10 svg-icon flex items-center" 
+              <SVG
+                className="w-10 h-10 svg-icon flex items-center"
                 cacheRequests={true}
-                src={process.env.basePath + `/static/icons/ui/addline.svg`} 
+                src={process.env.basePath + `/static/icons/ui/addline.svg`}
                 aria-label="icon edit"
               />
             </button>
             <a
-              href={`/counter/areas`} 
-              target="_blank" 
+              href={process.env.basePath + `/counter/areas`} 
+              target="_blank"
               download
               className="btn btn-default p-0 ml-4 rounded-l shadow"
             >
-              <SVG 
-                className="w-10 h-10 svg-icon flex items-center" 
+              <SVG
+                className="w-10 h-10 svg-icon flex items-center"
                 cacheRequests={true}
-                src={process.env.basePath + `/static/icons/ui/download.svg`} 
+                src={process.env.basePath + `/static/icons/ui/download.svg`}
                 aria-label="icon download"
               />
             </a>
-            <label 
-              htmlFor="upload" 
+            <label
+              htmlFor="upload"
               className="btn btn-default p-0 rounded-r shadow cursor-pointer	"
             >
-              <SVG 
-                className="w-10 h-10 svg-icon flex items-center" 
+              <SVG
+                className="w-10 h-10 svg-icon flex items-center"
                 cacheRequests={true}
-                src={process.env.basePath + `/static/icons/ui/upload.svg`} 
+                src={process.env.basePath + `/static/icons/ui/upload.svg`}
                 aria-label="icon upload"
               />
               <input type="file" id="upload" onChange={() => this.loadFile()} style={{"display":"none"}} />
@@ -104,10 +104,10 @@ class MenuCountingAreasEditor extends Component {
             className="btn btn-default p-0 rounded shadow"
             onClick={() => this.props.dispatch(setMode(EDITOR_MODE.EDIT))}
           >
-            <SVG 
-              className="w-10 h-10 svg-icon flex items-center" 
+            <SVG
+              className="w-10 h-10 svg-icon flex items-center"
               cacheRequests={true}
-              src={process.env.basePath + `/static/icons/ui/close.svg`} 
+              src={process.env.basePath + `/static/icons/ui/close.svg`}
               aria-label="icon edit"
             />
           </button>
