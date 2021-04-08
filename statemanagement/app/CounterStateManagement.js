@@ -239,7 +239,7 @@ export function restoreCountingAreas(req) {
       } else {
         axios({
           method: 'get',
-          url: ${process.env.basePath} + '/counter/areas',
+          url: process.env.basePath + '/counter/areas',
         }).then((response) => {
           dispatch({
             type: RESTORE_COUNTING_AREAS,
@@ -266,7 +266,7 @@ export function restoreCountingAreas(req) {
 export function registerCountingAreasOnServer() {
   return (dispatch, getState) => {
     // Ping webservice to start storing data on server
-    axios.post('/counter/areas',{
+    axios.post(process.env.basePath + '/counter/areas',{
       countingAreas: getState().counter.get('countingAreas').toJS()
     });
   }
