@@ -26,8 +26,9 @@ if(process.env.npm_package_version !== config.OPENDATACAM_VERSION) {
   return;
 }
 
-const SIMULATION_MODE = process.env.NODE_ENV !== 'production'; // When not running on the Jetson
+// const SIMULATION_MODE = process.env.NODE_ENV !== 'production'; // When not running on the Jetson
 // const SIMULATION_MODE = true;
+const SIMULATION_MODE = false;
 
 const port = parseInt(process.env.PORT, 10) || configHelper.getAppPort()
 const dev = process.env.NODE_ENV !== 'production'
@@ -221,7 +222,7 @@ app.prepare()
    * @apiParam {Object} point2 Second point of the counter line definition
    * @apiParam {Object} refResolution Resolution of client side canvas where the line is drawn
    * @apiParam {string="bidirectional","leftright_topbottom", "rightleft_bottomtop"} Direction of counting, if object passes the other direction, it won't be counted
-   * 
+   *
    * @apiParamExample {json} Request Example:
    *     {
             "countingAreas": {
@@ -952,14 +953,14 @@ app.prepare()
       cb(null, file.originalname)
     }
   })
-  var uploadMulter = multer({ 
-    storage: storage, 
+  var uploadMulter = multer({
+    storage: storage,
     fileFilter: function (req, file, cb) {
       if (!file.originalname.match(/\.(mp4|avi|mov)$/)) {
         return cb(new Error('Only video files are allowed!'));
       }
       cb(null, true);
-    } 
+    }
   }).single('video')
 
   // API to Upload file and restart yolo on that file
@@ -1000,7 +1001,7 @@ app.prepare()
     })
   })
 
-  
+
 
 
   /**
