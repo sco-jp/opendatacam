@@ -37,9 +37,9 @@ class UIControls extends Component {
             <div className="fps">{this.props.recordingStatus.currentFPS} FPS</div>
           </div>
           <div className="flex">
-            
+
             <div className="nav-left mt-2 ml-2 shadow flex">
-              <button 
+              <button
                 className={`btn btn-default rounded-l ${this.props.mode === MODE.LIVEVIEW ? 'btn-default--active' : ''} ${!this.props.uiSettings.get('pathfinderEnabled') && !this.props.uiSettings.get('counterEnabled') ? 'rounded-r': ''}`}
                 onClick={() => this.props.dispatch(setMode(MODE.LIVEVIEW))}
               >
@@ -69,20 +69,20 @@ class UIControls extends Component {
                 onClick={() => this.props.dispatch(setMode(MODE.DATAVIEW))}>
                 Data
               </button>
-              <button 
+              <button
                 className={`btn btn-default shadow rounded-r border-l border-default-soft border-solid ${this.props.mode === MODE.CONSOLEVIEW ? 'btn-default--active' : ''}`}
                 onClick={() => this.props.dispatch(setMode(MODE.CONSOLEVIEW))}
               >
                 Console
               </button>
-              <button 
+              <button
                 className={`btn btn-default shadow ml-2 py-0 px-3 rounded border border-default-soft border-solid`}
                 onClick={() => this.props.dispatch(showMenu())}
               >
                 <SVG
-                  className="w-5 h-5 svg-icon flex items-center" 
+                  className="w-5 h-5 svg-icon flex items-center"
                   cacheRequests={true}
-                  src={`/static/icons/ui/menu.svg`} 
+                  src={process.env.basePath + "/static/icons/ui/menu.svg"}
                   aria-label="icon menu"
                 />
               </button>
