@@ -52,7 +52,7 @@ export function startRecording() {
   return (dispatch, getState) => {
     // Ping webservice to start storing data on server
     axios.get('/recording/start');
-    
+
     dispatch(fetchHistory());
 
     // If not counting areas defined, go to live view and remove counter button
@@ -106,10 +106,15 @@ export function restoreUiSettings(req) {
     return new Promise((resolve, reject) => {
       let urlData = getURLData(req);
       let session = req && req.session ? req.session : null
-      let url = `${urlData.protocol}://${urlData.address}:${urlData.port}/ui`;
+      // let url = `${urlData.protocol}://${urlData.address}:${urlData.port}/ui`;
+      let url = `${urlData.protocol}://${urlData.address}${process.env.basePath}/ui`;
 
       axios({
         method: 'get',
+        auth: {
+          username: process.env.username,
+          password: process.env.password
+        },
         url: url,
         credentials: 'same-origin',
         data: {'session': session}
@@ -163,14 +168,14 @@ export function setUiSetting(uiSetting, value) {
     const currentMode = getState().app.get('mode');
 
     // If on pathview and disable pathfinder, go to liveview
-    if(uiSetting === "pathfinderEnabled" && 
+    if(uiSetting === "pathfinderEnabled" &&
        value === false &&
        currentMode === MODE.PATHVIEW) {
       dispatch(setMode(MODE.LIVEVIEW));
     }
 
     // If disabling counter while on counterview
-    if(uiSetting === "counterEnabled" && 
+    if(uiSetting === "counterEnabled" &&
        value === false &&
        currentMode === MODE.COUNTERVIEW) {
 
@@ -185,7 +190,7 @@ export function setUiSetting(uiSetting, value) {
       // Reset any counter areas defined
       dispatch(resetCountingAreas())
     }
-    
+
     dispatch({
       type: SET_UI_SETTING,
       payload: {
@@ -196,7 +201,7 @@ export function setUiSetting(uiSetting, value) {
 
     // Persist ui settings on server
     axios.post('/ui', getState().app.get('uiSettings').toJS());
-  
+
   }
 }
 
@@ -249,7 +254,7 @@ export default function AppReducer (state = initialState, action = {}) {
       return state.set('uiSettings', fromJS(action.payload))
     case LOAD_CONFIG:
       return state.set('config', fromJS(action.payload))
-    case UPDATE_APPSTATE: 
+    case UPDATE_APPSTATE:
       return state.set('yoloStatus', fromJS(action.payload.yoloStatus))
                   .set('isListeningToYOLO', action.payload.isListeningToYOLO)
                   .set('recordingStatus', fromJS(action.payload.recordingStatus))
