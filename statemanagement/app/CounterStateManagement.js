@@ -212,11 +212,11 @@ export function restoreCountingAreas(req) {
         let urlData = getURLData(req);
         let session = req && req.session ? req.session : null
         // let url = `${urlData.protocol}://${urlData.address}:${urlData.port}/counter/areas`;
+        let url = `${urlData.protocol}://${urlData.address}${process.env.basePath}/counter/areas`;
 
         axios({
           method: 'get',
-          // url: url,
-          url: '/counter/areas',
+          url: url,
           credentials: 'same-origin',
           data: {'session': session}
         }).then((response) => {
