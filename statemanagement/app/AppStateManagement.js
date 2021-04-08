@@ -67,7 +67,7 @@ export function startRecording() {
 export function stopRecording() {
   return (dispatch) => {
     // Ping webservice to stop storing data on server
-    axios.get('/recording/stop');
+    axios.get(process.env.basePath + '/recording/stop');
     dispatch(fetchHistory());
   }
 }
