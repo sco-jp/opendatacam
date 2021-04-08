@@ -219,7 +219,8 @@ export function setURLData(req) {
 
 export function startListeningToServerData() {
   return (dispatch, getState) => {
-    const eventSource = new EventSource("/tracker/sse");
+    // const eventSource = new EventSource("/tracker/sse");
+    const eventSource = new EventSource(process.env.basePath + "/tracker/sse");
     dispatch({
         type: START_LISTENING_SERVERDATA,
         payload: eventSource
