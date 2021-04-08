@@ -82,10 +82,10 @@ export function loadConfig(req) {
 
       axios({
         method: 'get',
-        // auth: {
-        //   username: process.env.username,
-        //   password: process.env.password
-        // },
+        auth: {
+          username: process.env.username,
+          password: process.env.password
+        },
         url: url,
         credentials: 'same-origin',
         data: {'session': session}
@@ -116,10 +116,10 @@ export function restoreUiSettings(req) {
 
       axios({
         method: 'get',
-        // auth: {
-        //   username: process.env.username,
-        //   password: process.env.password
-        // },
+        auth: {
+          username: process.env.username,
+          password: process.env.password
+        },
         url: url,
         credentials: 'same-origin',
         data: {'session': session}
