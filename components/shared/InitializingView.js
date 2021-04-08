@@ -67,7 +67,7 @@ class InitializingView extends Component {
             <a
               className="ml-2 btn btn-light rounded"
               target="_blank"
-              href="/console"
+              href={process.env.basePath + "/console"}
             >
               Download logs
             </a>
@@ -118,7 +118,6 @@ class InitializingView extends Component {
 export default connect((state) => {
 
   return {
-    fileName: state.app.getIn(['recordingStatus','filename']) 
+    fileName: state.app.getIn(['recordingStatus','filename'])
   }
 })(InitializingView)
-

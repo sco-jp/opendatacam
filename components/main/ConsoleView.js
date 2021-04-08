@@ -12,10 +12,10 @@ class ConsoleView extends Component {
     return (
         <div className="console-view bg-default-soft">
           <div className="flex justify-end pl-5 pt-5 pr-5">
-            <a 
-              className="btn btn-light rounded" 
+            <a
+              className="btn btn-light rounded"
               target="_blank"
-              href="/console"
+              href={process.env.basePath + "/console"}
             >
               Download logs
             </a>
