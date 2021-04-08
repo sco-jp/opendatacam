@@ -11,23 +11,23 @@ import { connect } from 'react-redux';
     -> Readable stream improve perfs : ( https://github.com/aruntj/mjpeg-readable-stream but I think not that useful , browser compat
     -> draw directly on canvas instead of having a <img> tag (https://gist.github.com/codebrainz/eeeeead894e8bdff059b)
     -> Support other resolution than 16/9
-    -> Do not use the mjpeg HTTP Stream:  but launch a HLS stream with Gstreamer: https://stackoverflow.com/questions/34975851/i-want-to-perform-hls-http-live-streaming-using-gstreamer 
+    -> Do not use the mjpeg HTTP Stream:  but launch a HLS stream with Gstreamer: https://stackoverflow.com/questions/34975851/i-want-to-perform-hls-http-live-streaming-using-gstreamer
     -  this will enable to launch stream with a <video> tag
 
-*/ 
+*/
 
 class WebcamStream extends PureComponent {
 
   constructor(props) {
     super(props);
     this.state = {
-      url : "/webcam/stream"
+      url : process.env.basePath + "/webcam/stream"
     }
   }
 
   componentDidMount() {
     this.setState({
-      url: `/webcam/stream?date=${new Date().getTime()}`
+      url: process.env.basePath + `/webcam/stream?date=${new Date().getTime()}`
     })
   }
 
