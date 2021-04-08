@@ -58,19 +58,19 @@ class Recording extends PureComponent {
               className="btn btn-default p-0 ml-2 shadow rounded"
               onClick={() => this.setState({ showDeleteConfirmationModal: true})}
             >
-              <SVG 
-                className="w-6 h-6 svg-icon flex items-center" 
+              <SVG
+                className="w-6 h-6 svg-icon flex items-center"
                 cacheRequests={true}
-                src={process.env.basePath + `/static/icons/ui/delete.svg`} 
+                src={process.env.basePath + `/static/icons/ui/delete.svg`}
                 aria-label="icon close"
               />
             </button>
           }
         </div>
         {this.state.showDeleteConfirmationModal &&
-          <RecordingDeleteConfirmationModal 
-            onCancel={() => this.setState({ showDeleteConfirmationModal: false})} 
-            onConfirm={() => this.props.dispatch(deleteRecording(this.props.id))} 
+          <RecordingDeleteConfirmationModal
+            onCancel={() => this.setState({ showDeleteConfirmationModal: false})}
+            onConfirm={() => this.props.dispatch(deleteRecording(this.props.id))}
           />
         }
         <div className="flex flex-initial flex-wrap pb-2 pl-1 m-2">
@@ -80,14 +80,14 @@ class Recording extends PureComponent {
                 <h3 className="mr-3 text-xl font-bold">Counter</h3>
                 <div>
                   <div className="font-medium mr-2 inline-block">Download:</div>
-                  <a className="btn-text mr-2" href={`/recording/${this.props.id}/counter`} target="_blank" download>JSON</a>
-                  <a className="btn-text" href={`/recording/${this.props.id}/counter/csv`} target="_blank" download>CSV</a>
+                  <a className="btn-text mr-2" href={process.env.basePath + `/recording/${this.props.id}/counter`} target="_blank" download>JSON</a>
+                  <a className="btn-text" href={process.env.basePath + `/recording/${this.props.id}/counter/csv`} target="_blank" download>CSV</a>
                 </div>
               </div>
               <div className="mt-4 flex flex-wrap">
                 {this.props.countingAreas && this.props.countingAreas.entrySeq().map(([countingAreaId, countingAreaData], index) =>
-                  <div 
-                    key={countingAreaId} 
+                  <div
+                    key={countingAreaId}
                     className={`flex flex-col counter-area bg-gray-200 m-2 rounded p-4`}
                   >
                     <div className="flex items-center">
@@ -105,8 +105,8 @@ class Recording extends PureComponent {
                     </div>
                     <div className="flex flex-initial flex-wrap mt-5 w-64">
                       {this.DISPLAY_CLASSES.slice(0, Math.min(this.DISPLAY_CLASSES.length, 6)).map((counterClass) =>
-                        <div 
-                          className="flex w-16 m-1 items-center justify-center" 
+                        <div
+                          className="flex w-16 m-1 items-center justify-center"
                           key={counterClass.class}
                         >
                           <h4 className="mr-2">{this.props.counterData && this.props.counterData.getIn([countingAreaId, counterClass.class]) || 0}</h4>
@@ -127,19 +127,19 @@ class Recording extends PureComponent {
               <h3 className="mr-3 text-xl font-bold">Tracker</h3>
               <div>
                 <div className="font-medium mr-2 inline-block">Download:</div>
-                <a className="btn-text mr-2" href={`/recording/${this.props.id}/tracker`} target="_blank" download>JSON</a>
+                <a className="btn-text mr-2" href={process.env.basePath + `/recording/${this.props.id}/tracker`} target="_blank" download>JSON</a>
               </div>
             </div>
             <div className="mt-6 rounded relative">
               <div className="text-white absolute" style={{ bottom: 10, left : 10}}>
                 <h2 className="inline text-4xl font-bold">{this.props.nbPaths}</h2> objects tracked
               </div>
-              <img src="/static/placeholder/pathview.jpg" />
+              <img src={process.env.basePath + "/static/placeholder/pathview.jpg"} />
             </div>
           </div>
         </div>
         <style jsx>{`
-          {/* Didn't succeed to make this better: https://stackoverflow.com/questions/54384305/dynamic-width-parent-with-flexbox-column-wrapping 
+          {/* Didn't succeed to make this better: https://stackoverflow.com/questions/54384305/dynamic-width-parent-with-flexbox-column-wrapping
             Seems cannot have container parent width shrink when some element are wrapping
           */}
           .counter-area {

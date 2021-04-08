@@ -68,7 +68,7 @@ export function deleteRecording(recordingId) {
       type: DELETE_RECORDING,
       payload: recordingId
     })
-    axios.delete(`/recording/${recordingId}`)
+    axios.delete(process.env.basePath + `/recording/${recordingId}`)
   }
 }
 
