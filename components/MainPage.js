@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'; 
+import { connect } from 'react-redux';
 import axios from 'axios';
 
 import AskLandscape from './shared/AskLandscape';
@@ -68,10 +68,10 @@ class MainPage extends React.PureComponent {
 
   render () {
     return (
-      <div 
-        className="main-page" 
-        onDragOver={(event) => event.preventDefault()} 
-        onDragStart={(event) => event.preventDefault()} 
+      <div
+        className="main-page"
+        onDragOver={(event) => event.preventDefault()}
+        onDragStart={(event) => event.preventDefault()}
         onDrop={(event) => this.onDrop(event)}
       >
         {this.props.deviceOrientation === 'portrait' &&
@@ -89,31 +89,19 @@ class MainPage extends React.PureComponent {
             droppedFile={this.state.droppedFile}
           />
         }
+
+        // removed some lines
         {this.props.isListeningToYOLO && !this.state.droppedFile &&
           <>
             <UIControls />
-            {this.props.showMenu &&  
-              <Menu />
-            }
             {this.props.mode === MODE.DATAVIEW &&
               <DataView />
-            }
-            {this.props.mode === MODE.CONSOLEVIEW &&
-              <ConsoleView />
             }
             {this.props.mode === MODE.LIVEVIEW &&
               <LiveView />
             }
             {this.props.uiSettings.get('counterEnabled') && this.props.mode === MODE.COUNTERVIEW &&
               <CounterView />
-            }
-            {/* Need to keep pathview in the DOM as it continuously renders */}
-            {this.props.uiSettings.get('pathfinderEnabled') &&
-              <PathView hidden={this.props.mode !== MODE.PATHVIEW} />
-            }
-            {/* Hide it on pathview mode */}
-            {this.props.uiSettings.get('heatmapEnabled') &&
-              <TrackerAccuracyView hidden={this.props.mode === MODE.PATHVIEW} />
             }
             <WebcamStream />
           </>
@@ -130,7 +118,7 @@ class MainPage extends React.PureComponent {
           }
         `}</style>
       </div>
-      
+
     )
   }
 }
@@ -146,3 +134,34 @@ export default connect((state) => {
     config: state.app.get('config')
   }
 })(MainPage)
+
+
+// {this.props.isListeningToYOLO && !this.state.droppedFile &&
+//   <>
+//     <UIControls />
+//     {this.props.showMenu &&
+//       <Menu />
+//     }
+//     {this.props.mode === MODE.DATAVIEW &&
+//       <DataView />
+//     }
+//     {this.props.mode === MODE.CONSOLEVIEW &&
+//       <ConsoleView />
+//     }
+//     {this.props.mode === MODE.LIVEVIEW &&
+//       <LiveView />
+//     }
+//     {this.props.uiSettings.get('counterEnabled') && this.props.mode === MODE.COUNTERVIEW &&
+//       <CounterView />
+//     }
+//     {/* Need to keep pathview in the DOM as it continuously renders */}
+//     {this.props.uiSettings.get('pathfinderEnabled') &&
+//       <PathView hidden={this.props.mode !== MODE.PATHVIEW} />
+//     }
+//     {/* Hide it on pathview mode */}
+//     {this.props.uiSettings.get('heatmapEnabled') &&
+//       <TrackerAccuracyView hidden={this.props.mode === MODE.PATHVIEW} />
+//     }
+//     <WebcamStream />
+//   </>
+// }
