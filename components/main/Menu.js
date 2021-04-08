@@ -53,7 +53,7 @@ class Menu extends Component {
             <SVG
               className="w-12 h-12 svg-icon flex items-center"
               cacheRequests={true}
-              src={`/static/icons/ui/close.svg`}
+              src={process.env.basePath + `/static/icons/ui/close.svg`}
               aria-label="icon close"
             />
           </button>

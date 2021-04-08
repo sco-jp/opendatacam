@@ -61,7 +61,7 @@ class Recording extends PureComponent {
               <SVG 
                 className="w-6 h-6 svg-icon flex items-center" 
                 cacheRequests={true}
-                src={`/static/icons/ui/delete.svg`} 
+                src={process.env.basePath + `/static/icons/ui/delete.svg`} 
                 aria-label="icon close"
               />
             </button>

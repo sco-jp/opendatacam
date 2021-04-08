@@ -58,7 +58,7 @@ class MenuCountingAreasEditor extends Component {
               <SVG 
                 className="w-10 h-10 svg-icon flex items-center" 
                 cacheRequests={true}
-                src={`/static/icons/ui/delete.svg`} 
+                src={process.env.basePath + `/static/icons/ui/delete.svg`} 
                 aria-label="icon delete"
               />
             </button>
@@ -68,7 +68,7 @@ class MenuCountingAreasEditor extends Component {
               <SVG 
                 className="w-10 h-10 svg-icon flex items-center" 
                 cacheRequests={true}
-                src={`/static/icons/ui/addline.svg`} 
+                src={process.env.basePath + `/static/icons/ui/addline.svg`} 
                 aria-label="icon edit"
               />
             </button>
@@ -81,7 +81,7 @@ class MenuCountingAreasEditor extends Component {
               <SVG 
                 className="w-10 h-10 svg-icon flex items-center" 
                 cacheRequests={true}
-                src={`/static/icons/ui/download.svg`} 
+                src={process.env.basePath + `/static/icons/ui/download.svg`} 
                 aria-label="icon download"
               />
             </a>
@@ -92,7 +92,7 @@ class MenuCountingAreasEditor extends Component {
               <SVG 
                 className="w-10 h-10 svg-icon flex items-center" 
                 cacheRequests={true}
-                src={`/static/icons/ui/upload.svg`} 
+                src={process.env.basePath + `/static/icons/ui/upload.svg`} 
                 aria-label="icon upload"
               />
               <input type="file" id="upload" onChange={() => this.loadFile()} style={{"display":"none"}} />
@@ -107,7 +107,7 @@ class MenuCountingAreasEditor extends Component {
             <SVG 
               className="w-10 h-10 svg-icon flex items-center" 
               cacheRequests={true}
-              src={`/static/icons/ui/close.svg`} 
+              src={process.env.basePath + `/static/icons/ui/close.svg`} 
               aria-label="icon edit"
             />
           </button>

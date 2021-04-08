@@ -62,7 +62,7 @@ class AskNameModal extends Component {
             <SVG 
               className="w-10 h-10 svg-icon flex items-center" 
               cacheRequests={true}
-              src={`/static/icons/ui/close.svg`} 
+              src={process.env.basePath + `/static/icons/ui/close.svg`} 
               aria-label="icon close"
             />
           </button>

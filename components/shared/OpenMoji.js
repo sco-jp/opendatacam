@@ -8,7 +8,7 @@ class OpenMoji extends Component {
       <SVG 
         className="svg-openmoji w-10"
         cacheRequests={true}
-        src={`/static/icons/openmojis/${this.props.hexcode}.svg`}
+        src={process.env.basePath + `/static/icons/openmojis/${this.props.hexcode}.svg`}
         aria-label={this.props.label}
       />
     )
