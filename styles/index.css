@@ -8,7 +8,7 @@
 @import "tailwindcss/utilities";
 
 
-@font-face {
+/* @font-face {
     font-family: 'WorkSans';
     font-weight: normal;
     src: url("/static/font/WorkSans-Regular.woff2");
@@ -27,12 +27,12 @@
     font-weight: bold;
     src: url("/static/font/WorkSans-Bold.woff2");
     font-display: swap;
-}
+} */
 
 html, body {
     font-family: 'WorkSans', sans-serif;
 }
- 
+
 body {
     --color-default: #fff;
     --color-default-soft: #F3F3F3;
@@ -65,7 +65,7 @@ body.theme-dark .overlay {
     width: 5px;
     height: 5px;
 }
-  
+
 ::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background-color: rgba(0,0,0,.5);
