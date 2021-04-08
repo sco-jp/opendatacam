@@ -94,13 +94,13 @@ class Recording extends PureComponent {
                       <h4 className="font-medium">{countingAreaData.get('name')}</h4>
                       <div className="w-4 h-4 ml-2 rounded-full" style={{'backgroundColor': getCounterColor(countingAreaData.get('color'))}}></div>
                       {countingAreaData.get('type') === COUNTING_AREA_TYPE.BIDIRECTIONAL &&
-                        <img className="icon-direction" style={{'transform': `rotate(${countingAreaData.getIn(['computed', 'lineBearings']).first() + 90}deg)`}} src="/static/icons/ui/arrow-double.svg" />
+                        <img className="icon-direction" style={{'transform': `rotate(${countingAreaData.getIn(['computed', 'lineBearings']).first() + 90}deg)`}} src={process.env.basePath + "/static/icons/ui/arrow-double.svg"} />
                       }
                       {countingAreaData.get('type') === COUNTING_AREA_TYPE.LEFTRIGHT_TOPBOTTOM &&
-                        <img className="icon-direction" style={{'transform': `rotate(${countingAreaData.getIn(['computed', 'lineBearings']).first() + 90}deg)`}} src="/static/icons/ui/arrow-up.svg" />
+                        <img className="icon-direction" style={{'transform': `rotate(${countingAreaData.getIn(['computed', 'lineBearings']).first() + 90}deg)`}} src={process.env.basePath + "/static/icons/ui/arrow-up.svg"} />
                       }
                       {countingAreaData.get('type') === COUNTING_AREA_TYPE.RIGHTLEFT_BOTTOMTOP &&
-                        <img className="icon-direction" style={{'transform': `rotate(${countingAreaData.getIn(['computed', 'lineBearings']).first() + 90}deg)`}} src="/static/icons/ui/arrow-down.svg" />
+                        <img className="icon-direction" style={{'transform': `rotate(${countingAreaData.getIn(['computed', 'lineBearings']).first() + 90}deg)`}} src={process.env.basePath + "/static/icons/ui/arrow-down.svg"} />
                       }
                     </div>
                     <div className="flex flex-initial flex-wrap mt-5 w-64">

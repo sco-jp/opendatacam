@@ -83,13 +83,13 @@ class SingleCounterArea extends Component {
             }} 
         >
           {this.props.area.type === COUNTING_AREA_TYPE.BIDIRECTIONAL &&
-            <img className="icon-direction" src="/static/icons/ui/arrow-double.svg" />
+            <img className="icon-direction" src={process.env.basePath + "/static/icons/ui/arrow-double.svg"} />
           }
           {this.props.area.type === COUNTING_AREA_TYPE.LEFTRIGHT_TOPBOTTOM &&
-            <img className="icon-direction" src="/static/icons/ui/arrow-up.svg" />
+            <img className="icon-direction" src={process.env.basePath + "/static/icons/ui/arrow-up.svg"} />
           }
           {this.props.area.type === COUNTING_AREA_TYPE.RIGHTLEFT_BOTTOMTOP &&
-            <img className="icon-direction" src="/static/icons/ui/arrow-down.svg" />
+            <img className="icon-direction" src={process.env.basePath + "/static/icons/ui/arrow-down.svg"} />
           }
           <div className="counter-value">
             {this.props.counterData && this.props.counterData.get('_total') || 0}

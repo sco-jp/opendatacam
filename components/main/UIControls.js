@@ -82,7 +82,7 @@ class UIControls extends Component {
                 <SVG
                   className="w-5 h-5 svg-icon flex items-center"
                   cacheRequests={true}
-                  src={process.env.basePath + "/static/icons/ui/menu.svg"}
+                  src={process.env.basePath + {process.env.basePath + "/static/icons/ui/menu.svg"}}
                   aria-label="icon menu"
                 />
               </button>
