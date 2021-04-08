@@ -77,10 +77,15 @@ export function loadConfig(req) {
     return new Promise((resolve, reject) => {
       let urlData = getURLData(req);
       let session = req && req.session ? req.session : null
-      let url = `${urlData.protocol}://${urlData.address}:${urlData.port}/config`;
+      // let url = `${urlData.protocol}://${urlData.address}:${urlData.port}/config`;
+      let url = `${urlData.protocol}://${urlData.address}${process.env.basePath}/config`;
 
       axios({
         method: 'get',
+        auth: {
+          username: process.env.username,
+          password: process.env.password
+        },
         url: url,
         credentials: 'same-origin',
         data: {'session': session}
