@@ -22,7 +22,7 @@ const initialState = fromJS({
   selectedCountingArea: null,
   mode: EDITOR_MODE.EDIT, // oneOf EDITOR_MODE
   counterSummary: {},
-  trackerSummary: {} 
+  trackerSummary: {}
 })
 
 // Actions
@@ -211,11 +211,12 @@ export function restoreCountingAreas(req) {
       if(req) {
         let urlData = getURLData(req);
         let session = req && req.session ? req.session : null
-        let url = `${urlData.protocol}://${urlData.address}:${urlData.port}/counter/areas`;
+        // let url = `${urlData.protocol}://${urlData.address}:${urlData.port}/counter/areas`;
 
         axios({
           method: 'get',
-          url: url,
+          // url: url,
+          url: '/counter/areas',
           credentials: 'same-origin',
           data: {'session': session}
         }).then((response) => {
@@ -275,8 +276,8 @@ export function computeCountingAreasCenters(countingAreas, canvasResolution) {
         {
           x: Math.abs(location.getIn(['point2','x']) - location.getIn(['point1','x'])) / 2 + Math.min(location.getIn(['point1','x']), location.getIn(['point2','x'])),
           y: Math.abs(location.getIn(['point2','y']) - location.getIn(['point1','y'])) / 2 + Math.min(location.getIn(['point1','y']), location.getIn(['point2','y']))
-        }, 
-        canvasResolution.toJS(), 
+        },
+        canvasResolution.toJS(),
         location.get('refResolution').toJS()
       ))
     } else {
