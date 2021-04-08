@@ -48,7 +48,7 @@ class UIControls extends Component {
               {this.props.uiSettings.get('counterEnabled') &&
               (!this.props.recordingStatus.isRecording || this.props.isAtLeastOneCountingAreasDefined) &&
                 <button
-                  className={`btn btn-default border-r border-l border-default-soft border-solid ${this.props.mode === MODE.COUNTERVIEW ? 'btn-default--active' : ''} ${this.props.uiSettings.get('pathfinderEnabled') ? '': 'rounded-r'}`}
+                  className={`btn btn-default rounded-r border-r border-l border-default-soft border-solid ${this.props.mode === MODE.COUNTERVIEW ? 'btn-default--active' : ''} ${this.props.uiSettings.get('pathfinderEnabled') ? '': 'rounded-r'}`}
                   onClick={() => this.props.dispatch(setMode(MODE.COUNTERVIEW))}
                 >
                   Counter
@@ -57,7 +57,7 @@ class UIControls extends Component {
             </div>
             <div className="nav-right mt-2 mr-2 flex">
               <button
-                className={`btn btn-default shadow rounded-l ${this.props.mode === MODE.DATAVIEW ? 'btn-default--active' : ''}`}
+                className={`btn btn-default shadow rounded-l rounded-r ${this.props.mode === MODE.DATAVIEW ? 'btn-default--active' : ''}`}
                 onClick={() => this.props.dispatch(setMode(MODE.DATAVIEW))}>
                 Data
               </button>
