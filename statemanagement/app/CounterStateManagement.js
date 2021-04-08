@@ -239,7 +239,7 @@ export function restoreCountingAreas(req) {
       } else {
         axios({
           method: 'get',
-          url: '/counter/areas',
+          url: ${process.env.basePath} + '/counter/areas',
         }).then((response) => {
           dispatch({
             type: RESTORE_COUNTING_AREAS,
