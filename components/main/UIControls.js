@@ -54,37 +54,12 @@ class UIControls extends Component {
                   Counter
                 </button>
               }
-              {this.props.uiSettings.get('pathfinderEnabled') &&
-                <button
-                  className={`btn btn-default rounded-r ${this.props.mode === MODE.PATHVIEW ? 'btn-default--active' : ''}`}
-                  onClick={() => this.props.dispatch(setMode(MODE.PATHVIEW))}
-                >
-                  Pathfinder
-                </button>
-              }
             </div>
             <div className="nav-right mt-2 mr-2 flex">
               <button
                 className={`btn btn-default shadow rounded-l ${this.props.mode === MODE.DATAVIEW ? 'btn-default--active' : ''}`}
                 onClick={() => this.props.dispatch(setMode(MODE.DATAVIEW))}>
                 Data
-              </button>
-              <button
-                className={`btn btn-default shadow rounded-r border-l border-default-soft border-solid ${this.props.mode === MODE.CONSOLEVIEW ? 'btn-default--active' : ''}`}
-                onClick={() => this.props.dispatch(setMode(MODE.CONSOLEVIEW))}
-              >
-                Console
-              </button>
-              <button
-                className={`btn btn-default shadow ml-2 py-0 px-3 rounded border border-default-soft border-solid`}
-                onClick={() => this.props.dispatch(showMenu())}
-              >
-                <SVG
-                  className="w-5 h-5 svg-icon flex items-center"
-                  cacheRequests={true}
-                  src={process.env.basePath + "/static/icons/ui/menu.svg"}
-                  aria-label="icon menu"
-                />
               </button>
             </div>
           </div>
@@ -134,3 +109,30 @@ export default connect((state) => {
     isAtLeastOneCountingAreasDefined: state.counter.get('countingAreas').size > 0
   }
 })(UIControls);
+
+// {this.props.uiSettings.get('pathfinderEnabled') &&
+//   <button
+//     className={`btn btn-default rounded-r ${this.props.mode === MODE.PATHVIEW ? 'btn-default--active' : ''}`}
+//     onClick={() => this.props.dispatch(setMode(MODE.PATHVIEW))}
+//   >
+//     Pathfinder
+//   </button>
+// }
+
+// <button
+//   className={`btn btn-default shadow rounded-r border-l border-default-soft border-solid ${this.props.mode === MODE.CONSOLEVIEW ? 'btn-default--active' : ''}`}
+//   onClick={() => this.props.dispatch(setMode(MODE.CONSOLEVIEW))}
+// >
+//   Console
+// </button>
+// <button
+//   className={`btn btn-default shadow ml-2 py-0 px-3 rounded border border-default-soft border-solid`}
+//   onClick={() => this.props.dispatch(showMenu())}
+// >
+//   <SVG
+//     className="w-5 h-5 svg-icon flex items-center"
+//     cacheRequests={true}
+//     src={process.env.basePath + "/static/icons/ui/menu.svg"}
+//     aria-label="icon menu"
+//   />
+// </button>

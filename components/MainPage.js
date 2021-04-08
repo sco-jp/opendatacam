@@ -89,8 +89,6 @@ class MainPage extends React.PureComponent {
             droppedFile={this.state.droppedFile}
           />
         }
-
-        // removed some lines
         {this.props.isListeningToYOLO && !this.state.droppedFile &&
           <>
             <UIControls />
