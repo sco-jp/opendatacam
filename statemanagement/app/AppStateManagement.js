@@ -51,7 +51,7 @@ const LOAD_CONFIG = 'App/LOAD_CONFIG'
 export function startRecording() {
   return (dispatch, getState) => {
     // Ping webservice to start storing data on server
-    axios.get('/recording/start');
+    axios.get(process.env.basePath + '/recording/start');
 
     dispatch(fetchHistory());
 

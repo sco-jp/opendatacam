@@ -10,7 +10,7 @@ const initialState = fromJS({
   isFetchingHistory: false,
   fetchHistoryError: null,
   recordingsCursor: {
-    limit: DEFAULT_LIMIT, 
+    limit: DEFAULT_LIMIT,
     offset: DEFAULT_OFFSET,
     total: 0
   }
@@ -29,7 +29,7 @@ export function fetchHistory(offset = DEFAULT_OFFSET, limit = DEFAULT_LIMIT) {
       type: FETCH_HISTORY_START
     });
 
-    axios.get(`/recordings?offset=${offset}&limit=${limit}`).then((response) => {
+    axios.get(process.env.basePath + `/recordings?offset=${offset}&limit=${limit}`).then((response) => {
       dispatch(fetchHistorySuccess(response.data.recordings));
       dispatch(updateRecordingsCursor({
         total: response.data.total,
