@@ -167,7 +167,7 @@ class DBManager {
           }
         );
 
-        db.collection(TRACKER_COLLECTION).insertOne(trackerEntry);
+        // db.collection(TRACKER_COLLECTION).insertOne(trackerEntry);
       });
     });
   }
