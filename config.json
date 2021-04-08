@@ -1,7 +1,7 @@
 {
   "OPENDATACAM_VERSION": "3.0.1",
   "PATH_TO_YOLO_DARKNET" : "/home/aicc-basic-demo/opendatacam/darknet",
-  "VIDEO_INPUT": "usbcam",
+  "VIDEO_INPUT": "raspberrycam",
   "NEURAL_NETWORK": "yolov4-tiny",
   "VIDEO_INPUTS_PARAMS": {
     "file": "opendatacam_videos/demo.mp4",
